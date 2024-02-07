@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "demo-extension",
+  "short_name": "ex",
+  "version": "0.0.1",
+  "description": "demo extension",
+
+  "permissions": ["sidePanel"],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "./build/index.html",
+    "default_height": 800,
+    "default_width": 800
+  },
+  "side_panel": {
+    "default_path": "./build/index.html"
+  }
+}
